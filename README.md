@@ -6,36 +6,31 @@
 
 说明:
 
-- 当前在 `Docker Desktop (Mac) Version 2.2.2.0 (43066) Channel: edge (Kubernetes: v1.16.5)`上经过测试可用
-  - [Docker Desktop for Mac Edge release notes](https://docs.docker.com/docker-for-mac/edge-release-notes/)
-- 使用 `Kubeadm` 在`Ubuntu`上安装 `Kubernetes` 请查看 [kubernetes-for-china](https://github.com/maguowei/kubernetes-for-china)
+- 当前在 `Docker Desktop (Mac) Version 3.2.1 (Kubernetes: v1.19.7)`上经过测试可用
+- 使用 `Kubeadm` 在`Ubuntu`上安装 `Kubernetes` 请查看 [gotok8s](https://github.com/maguowei/gotok8s)
 
 ## 安装并启动
 
-1. 下载安装 [Docker Desktop (Mac) Channel: edge](https://download.docker.com/mac/edge/Docker.dmg)
+1. 下载安装 [Docker Desktop (Mac)](https://desktop.docker.com/mac/stable/Docker.dmg)
 
-2. 设置 `Docker` 镜像加速, 这里使用 微软 `Azure` 的镜像服务，也可以选择其他的镜像加速服务。 [Azure Container Registry Proxy](https://github.com/Azure/container-service-for-azure-china/blob/master/aks/README.md#22-container-registry-proxy) ```https://dockerhub.azk8s.cn```
-
-![mirror](./image/mirror.png)
-
-3. 从 `Docker Hub` 的同步仓库中取回，并重新打上原始的`tag`.
+2. 从 `Docker Hub` 的同步仓库中取回，并重新打上原始的`tag`.
 
 ```bash
 ./load_images.sh
 ```
 
-4. 在`Docker for Mac` 设置中启用 `Kubernetes` 选项, 并等待一会儿，直到 `Kubernetes` 开始运行。
+3. 在`Docker for Mac` 设置中启用 `Kubernetes` 选项, 并等待一会儿，直到 `Kubernetes` 开始运行。
 
 ![k8s](./image/k8s.png)
 
-5. 可选的步骤: 切换`Kubernetes`运行上下文至 `docker-desktop`
+4. 可选的步骤: 切换`Kubernetes`运行上下文至 `docker-desktop`
 
 ```bash
 # 一般只有在之前用其他方式运行过Kubernetes才需要
 $ kubectl config use-context docker-desktop
 ```
 
-6. 验证 `Kubernetes` 集群状态
+5. 验证 `Kubernetes` 集群状态
 
 ```bash
 $ kubectl cluster-info
